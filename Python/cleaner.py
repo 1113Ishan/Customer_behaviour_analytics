@@ -43,6 +43,16 @@ def main():
     users.to_csv(cleaned_path+"users_cleaned.csv", index = False)
     articles.to_csv(cleaned_path + "content_cleaned.csv", index= False)
 
+    # clearing duplicates in content_cleaned
+    
+    articles = articles.drop_duplicates(subset='content_id')
+    articles.to_csv("I:/Data-analytics projects/SaaS user behaviuor analysis/Dataset/Cleaned/content_cleaned.csv", index=False)
+
+    articles = pd.read_csv("I:/Data-analytics projects/SaaS user behaviuor analysis/Dataset/Cleaned/content_cleaned.csv")
+
+    # check for duplicates
+    print(articles['content_id'].duplicated().sum())
+
     print("Data cleaned and saved!!!")
 
 if __name__ == "__main__":
