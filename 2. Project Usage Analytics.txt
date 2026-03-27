@@ -1,0 +1,116 @@
+2. Product Usage Analytics (Tech Company Scenario)
+
+This project simulates what analysts do in SaaS companies.
+
+Companies want to know:
+
+Are users using the product?
+
+Which features are popular?
+
+Are users coming back?
+
+The Data
+
+This is event tracking data.
+
+users
+
+user_id
+signup_date
+country
+
+sessions
+
+session_id
+user_id
+session_start
+session_end
+
+events
+
+event_id
+user_id
+event_type
+event_time
+feature_name
+
+Example event:
+
+user_clicked_export_button
+Python Role
+
+Python helps with time-based processing.
+
+Example tasks:
+
+Session duration calculation
+
+Event sequence analysis
+
+Feature usage grouping
+
+Example:
+
+session_duration = session_end - session_start
+SQL Analysis
+Daily Active Users
+SELECT
+DATE(event_time) AS day,
+COUNT(DISTINCT user_id) AS dau
+FROM events
+GROUP BY day;
+Feature Usage
+SELECT
+feature_name,
+COUNT(*) AS usage_count
+FROM events
+GROUP BY feature_name
+ORDER BY usage_count DESC;
+Retention Analysis
+SELECT
+signup_date,
+COUNT(DISTINCT user_id)
+FROM users
+JOIN events USING(user_id)
+GROUP BY signup_date;
+Dashboard Pages
+User Activity
+
+Metrics:
+
+DAU
+
+MAU
+
+Session count
+
+Feature Adoption
+
+Shows:
+
+Most used features
+
+Feature usage trends
+
+Feature drop-off
+
+Retention
+
+Visualizations:
+
+Cohort retention
+
+User churn
+
+Business Insights
+
+Example insights:
+
+“Feature A drives 40% of user engagement.”
+
+“User retention drops sharply after day 7.”
+
+“Mobile users have longer sessions than desktop.”
+
+This shows product thinking, which many analysts lack.
