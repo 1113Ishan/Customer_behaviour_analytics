@@ -10,7 +10,7 @@ def fix_id(df):
     ]
     for col in id_cols:
         if col in df.columns:
-            df[col] = df[col].astype(str)
+             df[col] = df[col].apply(lambda x: format(x, '.0f') if pd.notnull(x) else x)
     
     return df
 

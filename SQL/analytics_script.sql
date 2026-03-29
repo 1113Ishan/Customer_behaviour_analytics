@@ -55,6 +55,13 @@ FROM fact_events
 ORDER BY date;
 
 
+alter table fact_events 
+alter column useragent type text;
 
+ALTER TABLE fact_events
+ALTER COLUMN userregion TYPE TEXT;
+
+ALTER TABLE fact_events
+ALTER COLUMN usercountry TYPE TEXT;
 
 
